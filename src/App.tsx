@@ -6,23 +6,23 @@ import SliderComponent from "./components/SliderComponent";
 import "./styles/styles.scss";
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [width, setWidth] = useState<number>(window.innerWidth);
 
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth <= 600) {
-        setIsMobile(true);
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
   }, []);
 
   return (
     <>
       <Header />
       <main className="main">
-        {isMobile ? <LightboxComponent /> : <SliderComponent />}
+        {width > 600 ? <LightboxComponent /> : <SliderComponent />}
         <Content />
       </main>
     </>

@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Content = () => {
+  const [count, setCount] = useState(0);
+  const onClick = () => {
+    setCount((c) => c + 1);
+  };
+  const onClickDec = () => {
+    setCount((c) => Math.max(c - 1, 0));
+  };
+
   return (
     <div className="content">
       <p className="content__text">Sneaker Company</p>
@@ -13,9 +21,23 @@ const Content = () => {
       <div className="content__price">
         <p className="content__new-price">$125.00</p>
         <p className="content__discount">50%</p>
-        <p className="conetnt__old-price">$250.00</p>
+        <p className="content__old-price">$250.00</p>
       </div>
-      <div className="content__count"></div>
+      <div className="content__count count">
+        <button
+          type="button"
+          className="count__minus"
+          aria-label="Minus one item"
+          onClick={onClickDec}
+        />
+        <p className="count__number">{count}</p>
+        <button
+          type="button"
+          className="count__plus"
+          aria-label="Plus one item"
+          onClick={onClick}
+        />
+      </div>
       <button type="button" className="content__button">
         Add to cart
       </button>
