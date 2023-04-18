@@ -1,6 +1,35 @@
 import { Children, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import nextIcon from "/images/icon-next.svg";
+import prevIcon from "/images/icon-previous.svg";
+import closeIcon from "/images/icon-close.svg";
+
+const MyNextIcon = () => {
+  return (
+    <div className="icon-next-and-prev">
+      <img src={nextIcon} alt="" />
+    </div>
+  );
+};
+
+const MyPrevIcon = () => {
+  return (
+    <div className="icon-next-and-prev">
+      <img src={prevIcon} alt="" />
+    </div>
+  );
+};
+
+const MyCloseIcon = () => {
+  return (
+    <div className="icon-close">
+      <img src={closeIcon} alt="" />
+    </div>
+  );
+};
 
 const LightboxComponent = () => {
   const slides = [
@@ -68,10 +97,16 @@ const LightboxComponent = () => {
         ></button>
       </div>
       <Lightbox
+        plugins={[Thumbnails]}
         index={indexToShow}
         open={open}
         close={() => setOpen(false)}
         slides={slides}
+        render={{
+          iconPrev: () => <MyPrevIcon />,
+          iconNext: () => <MyNextIcon />,
+          iconClose: () => <MyCloseIcon />,
+        }}
       />
     </div>
   );
