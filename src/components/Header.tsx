@@ -1,13 +1,26 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  hamburgerClicked: boolean;
+  setHamburgerClicked: React.Dispatch<SetStateAction<boolean>>;
+}
+
+const Header = ({ hamburgerClicked, setHamburgerClicked }: HeaderProps) => {
+  const handleHamburger = () => {
+    setHamburgerClicked(!hamburgerClicked);
+  };
+
   return (
     <header className="header">
       <button
         type="button"
-        className="header__hamburger"
+        className={`header__hamburger ${
+          hamburgerClicked ? "hamburger-active" : ""
+        }`}
         aria-label="Open menu"
+        onClick={handleHamburger}
       ></button>
+
       <h1>
         <img
           className="header__logo"
@@ -15,7 +28,10 @@ const Header = () => {
           alt="Sneakers logo"
         />
       </h1>
-      <nav className="header__nav nav">
+
+      <nav
+        className={`header__nav nav ${hamburgerClicked ? "nav-active" : ""}`}
+      >
         <ul className="nav__list">
           <li className="nav__item">Collections</li>
           <li className="nav__item">Men</li>
@@ -24,6 +40,7 @@ const Header = () => {
           <li className="nav__item">Contact</li>
         </ul>
       </nav>
+
       <button
         type="button"
         className="header__cart"

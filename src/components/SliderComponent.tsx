@@ -4,14 +4,13 @@ import { Navigation } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 
-const SliderComponent = () => {
-  const images = [
-    { url: "/images/image-product-1.jpg" },
-    { url: "/images/image-product-2.jpg" },
-    { url: "/images/image-product-3.jpg" },
-    { url: "/images/image-product-4.jpg" },
-  ];
+type SliderComponentProps = {
+  images: {
+    src: string;
+  }[];
+};
 
+const SliderComponent = ({ images }: SliderComponentProps) => {
   return (
     <Swiper
       modules={[Navigation]}
@@ -21,16 +20,16 @@ const SliderComponent = () => {
       loop
     >
       <SwiperSlide>
-        <img src={images[0].url} alt="" />
+        <img src={images[0].src} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[1].url} alt="" />
+        <img src={images[1].src} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[2].url} alt="" />
+        <img src={images[2].src} alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[3].url} alt="" />
+        <img src={images[3].src} alt="" />
       </SwiperSlide>
     </Swiper>
   );

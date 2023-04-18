@@ -1,43 +1,17 @@
-import { Children, useState } from "react";
+import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import nextIcon from "/images/icon-next.svg";
-import prevIcon from "/images/icon-previous.svg";
-import closeIcon from "/images/icon-close.svg";
+import { MyNextIcon, MyPrevIcon, MyCloseIcon } from "./Icons";
 
-const MyNextIcon = () => {
-  return (
-    <div className="icon-next-and-prev">
-      <img src={nextIcon} alt="" />
-    </div>
-  );
+type LightboxComponentProps = {
+  images: {
+    src: string;
+  }[];
 };
 
-const MyPrevIcon = () => {
-  return (
-    <div className="icon-next-and-prev">
-      <img src={prevIcon} alt="" />
-    </div>
-  );
-};
-
-const MyCloseIcon = () => {
-  return (
-    <div className="icon-close">
-      <img src={closeIcon} alt="" />
-    </div>
-  );
-};
-
-const LightboxComponent = () => {
-  const slides = [
-    { src: "/images/image-product-1.jpg" },
-    { src: "/images/image-product-2.jpg" },
-    { src: "/images/image-product-3.jpg" },
-    { src: "/images/image-product-4.jpg" },
-  ];
+const LightboxComponent = ({ images }: LightboxComponentProps) => {
   const [open, setOpen] = useState(false);
   const [indexToShow, setIndexToShow] = useState<number>(0);
 
@@ -64,7 +38,7 @@ const LightboxComponent = () => {
         type="button"
         onClick={() => setOpen(true)}
       >
-        <img src={slides[indexToShow].src} alt="" />
+        <img src={images[indexToShow].src} alt="" />
       </button>
       <div className="lightbox__thumbnails">
         <button
@@ -101,7 +75,7 @@ const LightboxComponent = () => {
         index={indexToShow}
         open={open}
         close={() => setOpen(false)}
-        slides={slides}
+        slides={images}
         render={{
           iconPrev: () => <MyPrevIcon />,
           iconNext: () => <MyNextIcon />,
