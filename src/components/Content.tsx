@@ -19,28 +19,32 @@ const Content = () => {
         the weather can offer.
       </p>
       <div className="content__price">
-        <p className="content__new-price">$125.00</p>
-        <p className="content__discount">50%</p>
+        <div className="new-price-and-discount">
+          <p className="content__new-price">$125.00</p>
+          <p className="content__discount">50%</p>
+        </div>
         <p className="content__old-price">$250.00</p>
       </div>
-      <div className="content__count count">
-        <button
-          type="button"
-          className="count__minus"
-          aria-label="Minus one item"
-          onClick={onClickDec}
-        />
-        <p className="count__number">{count}</p>
-        <button
-          type="button"
-          className="count__plus"
-          aria-label="Plus one item"
-          onClick={onClick}
-        />
+      <div className="button-and-count">
+        <div className="content__count count">
+          <button
+            type="button"
+            className="count__minus"
+            aria-label="Minus one item"
+            onClick={onClickDec}
+          />
+          <p className="count__number">{count}</p>
+          <button
+            type="button"
+            className="count__plus"
+            aria-label="Plus one item"
+            onClick={onClick}
+          />
+        </div>
+        <button type="button" className="content__button">
+          Add to cart
+        </button>
       </div>
-      <button type="button" className="content__button">
-        Add to cart
-      </button>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Header />
       <main className="main">
-        {width > 600 ? <LightboxComponent /> : <SliderComponent />}
+        {width > 1030 ? <LightboxComponent /> : <SliderComponent />}
         <Content />
       </main>
     </>
