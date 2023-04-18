@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Children, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -13,6 +13,19 @@ const LightboxComponent = () => {
   const [indexToShow, setIndexToShow] = useState<number>(0);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const thumbnails = e.currentTarget.parentElement;
+
+    if (thumbnails) {
+      const { children } = thumbnails;
+
+      Array.from(children).forEach((child) => {
+        child.classList.remove("selected");
+      });
+    }
+
+    e.currentTarget.classList.add("selected");
+
+    // Sets the index of the image that is clicked
     setIndexToShow(parseInt(e.currentTarget.value, 10));
   };
   return (
@@ -26,24 +39,28 @@ const LightboxComponent = () => {
       </button>
       <div className="lightbox__thumbnails">
         <button
+          className="lightbox__thumbnails__thumbnail selected"
           type="button"
           value={0}
           onClick={(e) => handleClick(e)}
           aria-label="Show first image"
         ></button>
         <button
+          className="lightbox__thumbnails__thumbnail"
           type="button"
           value={1}
           onClick={(e) => handleClick(e)}
           aria-label="Show second image"
         ></button>
         <button
+          className="lightbox__thumbnails__thumbnail"
           type="button"
           value={2}
           onClick={(e) => handleClick(e)}
           aria-label="Show third image"
         ></button>
         <button
+          className="lightbox__thumbnails__thumbnail"
           type="button"
           value={3}
           onClick={(e) => handleClick(e)}
