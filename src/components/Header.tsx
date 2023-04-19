@@ -17,10 +17,6 @@ const Header = ({
   count,
   checkoutClicked,
 }: HeaderProps) => {
-  const handleHamburger = () => {
-    setHamburgerClicked(!hamburgerClicked);
-  };
-
   return (
     <header className="header">
       <button
@@ -29,7 +25,7 @@ const Header = ({
           hamburgerClicked ? "hamburger-active" : ""
         }`}
         aria-label="Open menu"
-        onClick={handleHamburger}
+        onClick={() => setHamburgerClicked(!hamburgerClicked)}
       ></button>
 
       <h1>
@@ -60,7 +56,11 @@ const Header = ({
       >
         {count !== 0 && checkoutClicked ? <span>{count}</span> : ""}
       </button>
-      <img className="header__profile" src="/images/image-avatar.png" alt="" />
+      <img
+        className="header__profile"
+        src="/images/image-avatar.png"
+        alt="man with sunglasses"
+      />
     </header>
   );
 };

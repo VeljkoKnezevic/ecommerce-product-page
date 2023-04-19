@@ -20,16 +20,16 @@ const SliderComponent = ({ images }: SliderComponentProps) => {
       loop
     >
       <SwiperSlide>
-        <img src={images[0].src} alt="" />
+        <img src={images[0].src} alt="Shoe" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[1].src} alt="" />
+        <img src={images[1].src} alt="Shoe" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[2].src} alt="" />
+        <img src={images[2].src} alt="Shoe" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={images[3].src} alt="" />
+        <img src={images[3].src} alt="Shoe" />
       </SwiperSlide>
     </Swiper>
   );

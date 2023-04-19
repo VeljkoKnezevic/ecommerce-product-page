@@ -5,7 +5,7 @@ import closeIcon from "/images/icon-close.svg";
 const MyNextIcon = () => {
   return (
     <div className="icon-next-and-prev">
-      <img src={nextIcon} alt="" />
+      <img src={nextIcon} alt="Next slide" />
     </div>
   );
 };
@@ -13,7 +13,7 @@ const MyNextIcon = () => {
 const MyPrevIcon = () => {
   return (
     <div className="icon-next-and-prev">
-      <img src={prevIcon} alt="" />
+      <img src={prevIcon} alt="Previoius slide" />
     </div>
   );
 };
@@ -21,7 +21,7 @@ const MyPrevIcon = () => {
 const MyCloseIcon = () => {
   return (
     <div className="icon-close">
-      <img src={closeIcon} alt="" />
+      <img src={closeIcon} alt="Close the slides" />
     </div>
   );
 };

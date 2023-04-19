@@ -30,7 +30,7 @@ const Cart = ({
               <img
                 className="cart__content__image"
                 src="/images/image-product-1-thumbnail.jpg"
-                alt=""
+                alt="shoes"
               />
               <div className="cart__content__text-container">
                 <p className="cart__content__name">

@@ -7,6 +7,12 @@ type ContentProps = {
 };
 
 const Content = ({ count, setCount, setCheckoutClicked }: ContentProps) => {
+  const handleCheckoutButton = () => {
+    if (count !== 0) {
+      setCheckoutClicked(true);
+    }
+  };
+
   const onClick = () => {
     setCount((c) => c + 1);
   };
@@ -47,7 +53,7 @@ const Content = ({ count, setCount, setCheckoutClicked }: ContentProps) => {
           />
         </div>
         <button
-          onClick={() => setCheckoutClicked(true)}
+          onClick={handleCheckoutButton}
           type="button"
           className="content__button"
         >
