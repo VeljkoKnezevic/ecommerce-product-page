@@ -1,0 +1,4 @@
+[submodule "src/styles/layout"]
+    path = src/styles/layout3
+    url = git://github.com/VeljkoKnezevic/ecommerce-product-page/src/styles/layout
+    ignore = dirty
