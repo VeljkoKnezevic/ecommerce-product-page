@@ -1,0 +1,119 @@
+@use "../utils/" as u;
+
+.cart {
+  position: absolute;
+  z-index: 4;
+  right: u.rem(8);
+  top: u.rem(76);
+  width: u.rem(360);
+  height: u.rem(256);
+  background: var(--white);
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.503143);
+  border-radius: u.rem(10);
+
+  @include u.breakpoint(large) {
+    right: u.rem(89);
+    top: u.rem(94);
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: u.rem(16);
+    line-height: u.rem(20);
+    color: var(--very-dark-blue);
+    padding: u.rem(24);
+    padding-block-end: u.rem(27);
+  }
+
+  &__body {
+    border-block-start: 1px solid #e4e9f2;
+    display: flex;
+    flex-direction: column;
+    height: u.rem(188);
+    padding: u.rem(24) u.rem(24) u.rem(32);
+
+    &__text {
+      font-weight: 700;
+      font-size: u.rem(16);
+      line-height: u.rem(26);
+      text-align: center;
+      color: var(--dark-grayish-blue);
+      margin-block-start: u.rem(53);
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    &__image {
+      width: u.rem(50);
+      height: u.rem(50);
+      border-radius: u.rem(4);
+      margin-inline-end: u.rem(16);
+    }
+
+    &__name {
+      font-weight: 400;
+      font-size: u.rem(16);
+      line-height: u.rem(26);
+      color: var(--dark-grayish-blue);
+    }
+
+    .price-and-total {
+      display: flex;
+      align-items: center;
+    }
+
+    &__price {
+      font-weight: 400;
+      font-size: u.rem(16);
+      line-height: u.rem(26);
+      color: var(--dark-grayish-blue);
+    }
+
+    &__total {
+      font-weight: 700;
+      font-size: u.rem(16);
+      line-height: u.rem(26);
+      color: var(--very-dark-blue);
+      margin-inline-start: u.rem(10);
+    }
+
+    &__remove {
+      background-image: url(/images/icon-delete.svg);
+      padding: u.rem(8) u.rem(9);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      border: none;
+      margin-inline-start: auto;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(0);
+      }
+    }
+  }
+
+  &__button {
+    background: var(--orange);
+    box-shadow: 0px 20px 50px -20px var(--orange);
+    border-radius: u.rem(10);
+    border: none;
+    padding: u.rem(19) 0;
+    width: 100%;
+    margin-block-start: u.rem(16);
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    font-size: u.rem(16);
+    line-height: u.rem(20);
+    color: var(--white);
+    margin-block-start: u.rem(24);
+
+    &:hover {
+      background-color: var(--orange);
+      cursor: pointer;
+    }
+  }
+}

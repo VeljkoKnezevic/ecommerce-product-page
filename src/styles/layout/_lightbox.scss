@@ -1,0 +1,126 @@
+@use "../utils/" as u;
+
+.lightbox {
+  &__main {
+    width: u.rem(445);
+    height: u.rem(445);
+    border-radius: u.rem(15);
+    background-color: transparent;
+    padding: 0;
+    border: none;
+
+    img {
+      border-radius: u.rem(15);
+    }
+  }
+
+  &__thumbnails {
+    display: flex;
+    gap: u.rem(31);
+    margin-block-start: u.rem(32);
+
+    .selected {
+      background-color: white;
+      opacity: 0.45;
+      border: 2px solid var(--orange);
+    }
+
+    &__thumbnail {
+      width: u.rem(88);
+      height: u.rem(88);
+      background-color: transparent;
+      background-size: contain;
+      border: none;
+      border-radius: u.rem(10);
+
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        opacity: 0.5;
+      }
+
+      &:nth-child(1) {
+        background-image: url(/images/image-product-1-thumbnail.jpg);
+      }
+      &:nth-child(2) {
+        background-image: url(/images/image-product-2-thumbnail.jpg);
+      }
+      &:nth-child(3) {
+        background-image: url(/images/image-product-3-thumbnail.jpg);
+      }
+      &:nth-child(4) {
+        background-image: url(/images/image-product-4-thumbnail.jpg);
+      }
+    }
+  }
+}
+
+.icon-next-and-prev {
+  background-color: var(--white);
+  padding: u.rem(19) u.rem(21.5);
+  border-radius: 50%;
+}
+
+.icon-close {
+  filter: brightness(0) invert(1);
+
+  &:hover {
+    cursor: pointer;
+    filter: invert(50%) sepia(85%) saturate(1183%) hue-rotate(347deg)
+      brightness(102%) contrast(102%);
+  }
+}
+
+.yarl {
+  &__button {
+    &:nth-child(1) {
+      margin-block-start: u.rem(80);
+      margin-inline-end: u.rem(428);
+    }
+  }
+
+  &__slide {
+    &_image {
+      width: u.rem(550);
+      height: u.rem(550);
+      position: relative;
+    }
+  }
+  &__container {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  &__navigation {
+    position: absolute;
+    &_prev {
+      left: u.rem(400);
+    }
+
+    &_next {
+      position: absolute;
+      right: u.rem(400);
+    }
+  }
+
+  &__thumbnails {
+    &_container {
+      opacity: 0.75;
+    }
+
+    &_track {
+      gap: u.rem(15.5);
+    }
+
+    &_thumbnail {
+      border: none;
+      border-radius: u.rem(10);
+      width: u.rem(88);
+      height: u.rem(88);
+      &:hover {
+        background-color: var(--white);
+        opacity: 0.8;
+        border: none;
+      }
+    }
+  }
+}

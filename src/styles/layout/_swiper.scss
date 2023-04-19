@@ -1,0 +1,33 @@
+@use "../utils/" as u;
+
+.swiper {
+  margin-block-start: u.rem(25);
+  height: u.rem(300);
+
+  &-button-prev {
+    background-image: url(/images/icon-previous.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--white);
+    width: u.rem(40);
+    height: u.rem(40);
+    border-radius: 50%;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &-button-next {
+    background-image: url(/images/icon-next.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--white);
+    width: u.rem(40);
+    height: u.rem(40);
+    border-radius: 50%;
+    &::after {
+      display: none;
+    }
+  }
+}
