@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { SetStateAction } from "react";
 
-const Content = () => {
-  const [count, setCount] = useState(0);
+type ContentProps = {
+  count: number;
+  setCount: React.Dispatch<SetStateAction<number>>;
+  setCheckoutClicked: React.Dispatch<SetStateAction<boolean>>;
+};
+
+const Content = ({ count, setCount, setCheckoutClicked }: ContentProps) => {
   const onClick = () => {
     setCount((c) => c + 1);
   };
@@ -41,7 +46,11 @@ const Content = () => {
             onClick={onClick}
           />
         </div>
-        <button type="button" className="content__button">
+        <button
+          onClick={() => setCheckoutClicked(true)}
+          type="button"
+          className="content__button"
+        >
           Add to cart
         </button>
       </div>

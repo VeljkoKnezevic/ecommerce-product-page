@@ -3,9 +3,20 @@ import React, { SetStateAction } from "react";
 interface HeaderProps {
   hamburgerClicked: boolean;
   setHamburgerClicked: React.Dispatch<SetStateAction<boolean>>;
+  cartClicked: boolean;
+  setCartClicked: React.Dispatch<SetStateAction<boolean>>;
+  count: number;
+  checkoutClicked: boolean;
 }
 
-const Header = ({ hamburgerClicked, setHamburgerClicked }: HeaderProps) => {
+const Header = ({
+  hamburgerClicked,
+  setHamburgerClicked,
+  setCartClicked,
+  cartClicked,
+  count,
+  checkoutClicked,
+}: HeaderProps) => {
   const handleHamburger = () => {
     setHamburgerClicked(!hamburgerClicked);
   };
@@ -45,7 +56,10 @@ const Header = ({ hamburgerClicked, setHamburgerClicked }: HeaderProps) => {
         type="button"
         className="header__cart"
         aria-label="Open cart"
-      ></button>
+        onClick={() => setCartClicked(!cartClicked)}
+      >
+        {count !== 0 && checkoutClicked ? <span>{count}</span> : ""}
+      </button>
       <img className="header__profile" src="/images/image-avatar.png" alt="" />
     </header>
   );
